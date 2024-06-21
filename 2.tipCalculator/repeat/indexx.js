@@ -7,7 +7,7 @@ const  output = document.getElementById('output');
 // buat function itungan dari value inputan
 function calculate() {
 
-    const result = bill.value+(persen.value/100);
+    const result = bill.value*(1+persen.value/100);
     output.innerText=result;   
 }
 
