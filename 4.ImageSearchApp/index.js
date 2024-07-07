@@ -21,7 +21,7 @@ async function searchImages() {
 
     const results = data.results;
     
-    console.log(data)
+
 
     results.map((result)=>{
         const imageWrapper = document.createElement("div");
