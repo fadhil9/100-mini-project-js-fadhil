@@ -29,5 +29,6 @@ function toDoList(task) {
     if(task && task.checked) {
         liel.classList.add("checked");
     }
+    liel.innerText = newTask;
     
 }
