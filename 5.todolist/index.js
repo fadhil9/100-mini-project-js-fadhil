@@ -30,5 +30,36 @@ function toDoList(task) {
         liel.classList.add("checked");
     }
     liel.innerText = newTask;
+    ulEl.appendChild(liel);
+    inputEl.value="";
+
+    const checkBtnEl = document.createElement("div");
+    checkBtnEl.innerHTML = `<i class="fas fa-check-square"></i>`;
+    liel.appendChild(checkBtnEl);
+
+    const trashBtnEl = document.createElement("div");
+    trashBtnEl.innerHTML = `<i class="fas fa-trash"></i></li>`;
+    liel.appendChild(trashBtnEl);
     
+    checkBtnEl.addEventListener("click", ()=>{
+        liel.classList.toggle("checked");
+        updateLocalStorage();
+    });
+
+    trashBtnEl.addEventListener("click",()=>{
+        liel.remove();
+        updateLocalStorage();
+    });
+}
+
+function updateLocalStorage() {
+    const liels = document.querySelectorAll("li");
+    list = [];
+    liels.forEach((liel)=>{
+        list.push({
+            name:liel.innerText,
+            checked:liel.classList.contains("checked")
+        })
+    })
+    localStorage.setItem("list",JSON.stringify(list));
 }
