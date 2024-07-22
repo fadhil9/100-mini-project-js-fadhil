@@ -4,6 +4,13 @@ const inputEl = document.querySelector(".input");
 
 const ulEl = document.querySelector(".list");
 
+const dummyData = [
+    { name: "Belajar JavaScript", checked: true },
+    { name: "Kerjakan PR", checked: false },
+    { name: "Baca Buku", checked: false }
+];
+localStorage.setItem("list",JSON.stringify(dummyData));
+
 
 let list = JSON.parse(localStorage.getItem('list'));
 
@@ -11,7 +18,9 @@ if(list){
     list.forEach(task => {
         toDoList(task);
     });
+    
 }
+
 
 formEl.addEventListener("submit",(event)=>{
     event.preventDefault();
@@ -38,7 +47,7 @@ function toDoList(task) {
     liel.appendChild(checkBtnEl);
 
     const trashBtnEl = document.createElement("div");
-    trashBtnEl.innerHTML = `<i class="fas fa-trash"></i></li>`;
+    trashBtnEl.innerHTML = `<i class="fas fa-trash"></i>`;
     liel.appendChild(trashBtnEl);
     
     checkBtnEl.addEventListener("click", ()=>{
@@ -63,3 +72,4 @@ function updateLocalStorage() {
     })
     localStorage.setItem("list",JSON.stringify(list));
 }
+
