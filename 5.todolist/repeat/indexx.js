@@ -27,19 +27,20 @@ formEl.addEventListener('submit',(event)=>{
 //untuk update data  dilocal storage
 function tampilinTodo(todo){
     let newTodo;
-
+    // kalo todo itu ada, maka itu dari array object localstorage makanya todo.name simpen dinewtodo
+    //kalo ga ada berarti itu dari input makanya inputEl.value
     if(todo){
         newTodo = todo.name
     }else{
-        todo = inputEl.value
+        newTodo = inputEl.value
     }
 
     const li = document.createElement("li");
-    li.innerText = newTodo;
+    li.innerText = newTodo; //nah newtodo nya masukin ke text nya element li yang baru dibuat
     ulEl.appendChild(li)
-    inputEl.value = ''
+    inputEl.value = '' //disini value inputel kosongin lagi biar siap dipake lagi
 
-    if(todo && todo.checked){
+    if(todo && todo.checked){ //kalo parameter todo ada aliasa dr localstorage dan todo.checked itu true maka element li kasih class checked
         li.classList.add('checked')
     }
 
@@ -53,10 +54,10 @@ function tampilinTodo(todo){
     })
     
     const trashBtnEl = document.createElement('div');
-    trashBtnEl.innerHTML = `<i class="fa-solid fa-check"></i>`
+    trashBtnEl.innerHTML = `<i class="fa-solid fa-trash"></i>`
     li.appendChild(trashBtnEl);
     
-    checkBtnEl.addEventListener('click',()=>{
+    trashBtnEl.addEventListener('click',()=>{
         li.remove('checked')
         updateLocalStorage()
     })
@@ -64,14 +65,16 @@ function tampilinTodo(todo){
 
 function updateLocalStorage(){
     let semuaLi = document.querySelectorAll("li");
-    list = []
-
+    list = [] //cara updatenya list lama kosongin lagi
+    // dan push list dari data element li pake object
+    
     semuaLi.forEach((liel)=>{
         list.push({
             name : liel.innerText,
             checked : liel.classList.contains('checked')
         })
     })
+    //abis itu simpen ke localstorage list array objectnya jangan lupa harus json.stringify
     localStorage.setItem("list",JSON.stringify(list))
 }
 
