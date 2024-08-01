@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    background-color: slateblue;
+    overflow: hidden;
+}
+h2{
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+.year{
+    font-size: 5em;
+    color: white;
+    font-weight: bold;
+}
+.countdown{
+    margin: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    color: white;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.countdown div{
+    margin: 0 15px;
+    font-size: 2.5em;
+    font-weight: 500;
+    margin-top: -25px;
+    position: relative;
+    text-align: center;
+    width: 100px;
+}
