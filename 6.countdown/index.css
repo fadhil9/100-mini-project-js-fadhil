@@ -39,3 +39,28 @@ h2{
     text-align: center;
     width: 100px;
 }
+.countdown div::before{
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    font-size: 0.35em;
+    line-height: 35px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    width: 100%;
+    height: 35px;
+}
+.countdown #day::before{
+    content: "Days";
+}
+.countdown #hour::before{
+    content: "Hour";
+}
+.countdown #minute::before{
+    content: "Minute";
+}
+.countdown #second::before{
+    content: "second";
+}
