@@ -24,8 +24,7 @@ function calculateResult() {
     inputFieldEl.value = eval(inputFieldEl.value);
 }
 
-function appendValue() {
+function appendValue(buttonValue) {
     inputFieldEl.value +=  buttonValue;
 }
 
-console.log("woww");
