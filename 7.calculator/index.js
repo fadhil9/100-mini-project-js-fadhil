@@ -17,7 +17,7 @@ for(let i = 0; i< buttonsEl.length; i++){
 }
 
 function clearResult() {
-    inputFieldEl.value='';
+    inputFieldEl.value="";
 }
 
 function calculateResult() {
